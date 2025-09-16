@@ -35,7 +35,7 @@ export function createApp() {
 		? { etag: false, lastModified: false, cacheControl: false, immutable: false, maxAge: 0 }
 		: {};
 	app.use(express.static(path.join(__dirname, '../../public'), staticOptions as any));
-	app.get('*', (_req, res) => {
+	app.use((_req, res) => {
 		res.sendFile(path.join(__dirname, '../../public/index.html'));
 	});
 
