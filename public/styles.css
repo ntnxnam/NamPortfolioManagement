@@ -39,6 +39,9 @@ button, select {
 }
 button:hover, select:hover { border-color: #d1d5db; }
 
+button#power-off { border-color: #111111; }
+button#power-off:hover { background: #111111; color: #fff; }
+
 .layout {
 	display: grid;
 	grid-template-columns: 1fr 1fr;

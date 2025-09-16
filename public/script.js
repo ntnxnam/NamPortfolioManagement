@@ -20,6 +20,7 @@ const ganttEndSel = document.getElementById('gantt-end');
 const ganttNextSel = document.getElementById('gantt-next');
 const ganttCanvas = document.getElementById('gantt');
 const ctx = ganttCanvas.getContext('2d');
+const powerOffBtn = document.getElementById('power-off');
 
 function persist() {
 	localStorage.setItem('mono-grid-state', JSON.stringify(state));
@@ -214,6 +215,17 @@ addColBtn.addEventListener('click', addCol);
 }));
 
 window.addEventListener('resize', drawGantt);
+
+powerOffBtn.addEventListener('click', async () => {
+	powerOffBtn.disabled = true;
+	try {
+		await fetch('/api/power-off', { method: 'POST' });
+	} catch {}
+	// Give server a moment to close
+	setTimeout(() => {
+		window.close();
+	}, 300);
+});
 
 load();
 renderGrid();
