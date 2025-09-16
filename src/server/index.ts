@@ -31,6 +31,5 @@ for (const signal of signals) {
 }
 
 server.listen(env.PORT, env.HOST, () => {
-	logger.info({ port: env.PORT, host: env.HOST, pid: process.pid }, 'Server lis
-tening');
+	logger.info({ port: env.PORT, host: env.HOST, pid: process.pid }, 'Server listening');
 });

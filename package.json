@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server/index.js",
+    "prestart": "npm run build",
+    "dev": "cross-env NODE_ENV=development nodemon --watch src --ext ts,js,json --exec \"node --loader ts-node/esm src/server/index.ts\"",
+    "format": "prettier --write \"{src,public}/**/*.{ts,js,css,html}\"",
+    "lint": "eslint \"src/**/*.{ts,tsx}\""
   },
   "repository": {
     "type": "git",

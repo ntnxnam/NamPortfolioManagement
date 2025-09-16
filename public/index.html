@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Mono Grid + Gantt</title>
+	<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+	<header class="app-header">
+		<h1>Mono Grid + Gantt</h1>
+		<div class="controls">
+			<button id="add-row">Add Row</button>
+			<button id="add-col">Add Column</button>
+			<select id="gantt-start" title="Start column"></select>
+			<select id="gantt-end" title="End column"></select>
+			<select id="gantt-next" title="Next segment column (optional)"></select>
+		</div>
+	</header>
+	<main class="layout">
+		<section class="grid-section">
+			<table id="grid" class="grid"></table>
+		</section>
+		<section class="gantt-section">
+			<canvas id="gantt" height="400"></canvas>
+		</section>
+	</main>
+	<script type="module" src="/script.js"></script>
+</body>
+</html>
