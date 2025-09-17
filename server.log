@@ -1,0 +1,5 @@
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[13:50:04.025] INFO (7741): Server listening
+    env: "development"
+    port: 3000
+    host: "0.0.0.0"
