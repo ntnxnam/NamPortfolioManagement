@@ -1,8 +1,13 @@
 import dotenv from 'dotenv';
 import { z } from 'zod';
 
-if (process.env.NODE_ENV !== 'production') {
-	dotenv.config();
+// Load .env from current working directory or next to packaged binary
+const envPaths = [
+	process.cwd() + '/.env',
+	(process as any).pkg ? (require('node:path').dirname(process.execPath) + '/.env') : undefined,
+].filter(Boolean) as string[];
+for (const p of envPaths) {
+	dotenv.config({ path: p });
 }
 
 const EnvSchema = z.object({

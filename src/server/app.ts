@@ -34,9 +34,11 @@ export function createApp() {
 	const staticOptions = process.env.NODE_ENV === 'development'
 		? { etag: false, lastModified: false, cacheControl: false, immutable: false, maxAge: 0 }
 		: {};
-	app.use(express.static(path.join(__dirname, '../../public'), staticOptions as any));
+	const baseDir = (process as any).pkg ? path.dirname(process.execPath) : path.join(__dirname, '../../');
+	const staticRoot = path.join(baseDir, 'public');
+	app.use(express.static(staticRoot, staticOptions as any));
 	app.use((_req, res) => {
-		res.sendFile(path.join(__dirname, '../../public/index.html'));
+		res.sendFile(path.join(staticRoot, 'index.html'));
 	});
 
 	return app;
